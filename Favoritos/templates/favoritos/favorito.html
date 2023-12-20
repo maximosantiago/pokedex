@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="content">
+    <article>
+        <div class="text-center"> Lista de tus pokemones favoritos </div>
+    </article>
+
+    <article class="list">
+
+        <div class="container">
+
+            <div class="row">
+                {%if favs%}
+                  {% for pok in favs %}
+                    <div class="card text-bg-danger col-sm-6 col-md-4 col-lg-4 col-xl-3 mx-3 my-3 text-center">
+                        <div class="card-header">Pokemon ID: {{pok.id}} </div>
+                        <div class="card-body col-sm-12 col-4">
+                            <div class="card-title"> {{pok.name|capfirst}}</div>
+
+                            <div class="card-text">
+                                    Tipos:
+                                    {% for tipo in pok.tipos %}
+                                        {{tipo|capfirst}}
+                                    {% endfor %}
+                            </div>
+                            <div class="card-text"> Peso: {{pok.weight}} KG</div>
+                            <div class="card-text"> Altura: {{pok.height}} Metros</div>
+                        </div>
+                        <!---<img src="{{pok.sprites}}" alt="pok" class="col-sm-12 col-8"> --->
+
+                        <div class="unti">
+                        
+                            <a class="star active" href="{% url 'favoritos:Eliminar' pok.id%}">&#9733;</a>
+                            <div id="carouselExample{{pok.id}}" class="carousel slide col-sm-12 col-8">
+                            
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <img src="{{pok.sprite_front}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{pok.sprite_back}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{pok.sprite_front_shiny}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{pok.sprite_back_shiny}}" class="d-block w-100" alt="...">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{pok.id}}" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{pok.id}}" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+    
+                        </div>
+
+                    </div>
+                      
+                  {%endfor%}
+              </div>  
+                {%else%}
+              
+
+            </div>
+              <div class="container">
+                <div class="row">
+                  <section class="notfound">
+                      <div>
+                        <h3 class="">No tienes pokemones favoritos</h3>
+                        <h6 class="">Empieza agregar Ahora</h6>
+                        <div><img class="img-pok" src="{% static 'PokedexApp/img/pokebola-sin-nada.png'%}"></div>
+                      </div>
+                  </section>
+                </div>
+              </div>
+                {%endif%}     
+            
+
+    </article>
+
+</section>
+
+{%endblock%}

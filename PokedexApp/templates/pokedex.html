@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{%block content %}
+<section class="content">
+    <div class="container">
+        <div class="search-box{% if not busqueda %} no-results{% endif %}">
+            
+            <div class="row">{% include 'buscador/buscador.html' %}</div>
+        </div>
+    </div>
+    {% if busqueda %}
+    <section class="results">
+        <div class="container">
+            <div class="row">
+                <h5 class="col-12 text-center">Resultados para "{{busqueda}}"</h5>
+            </div>
+       
+            <div class="row">
+                {%for pokemon in results%}
+                    <div class="card text-bg-danger col-sm-8 col-md-4 col-lg-4 col-xl-3 mx-4 my-3 ">
+                        <div class="card-header">Pokemon ID: {{pokemon.id}}</div>
+                        <div class="card-body col-sm-12 col-4">
+                            <div class="card-title"> {{pokemon.name|capfirst}}</div>
+
+                            <div class="card-text">
+                                    Tipos:
+                                    {% for tipo in pokemon.tipos %}
+                                        {{tipo|capfirst}}
+                                    {% endfor %}
+                            </div>
+                            <div class="card-text"> Peso: {{pokemon.weight}} KG</div>
+                            <div class="card-text"> Altura: {{pokemon.height}} Metros</div>
+                        </div>
+                        <!---<img src="{{pokemon.sprites}}" alt="Pokemon" class="col-sm-12 col-8"> --->
+                        <div class="unti">
+                            {%if pokemon.fav %}
+                                <a class="star active" href="{% url 'favoritos:Eliminar' pokemon.id%}">&#9733;</a>
+                            {% else %}   
+                                <a class="star " href="{% url 'favoritos:Agregar' pokemon.id%}">&#9733;</a> 
+                            {% endif %}    
+                            <div id="carouselExample{{pokemon.id}}" class="carousel slide col-sm-12 col-8">
+                            
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <img src="{{pokemon.sprite_front}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{pokemon.sprite_back}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{pokemon.sprite_front_shiny}}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{{pokemon.sprite_back_shiny}}" class="d-block w-100" alt="...">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{pokemon.id}}" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{pokemon.id}}" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+    
+                        </div>
+                        
+                    </div>
+                    
+
+                {%endfor%}
+            </div>
+
+            <div class="pagination row">
+                <span class="step-links">
+                    {% if results.has_previous%}
+                        <a href="{% url 'Buscar'%}?pagina=1&nombre={{busqueda}}" class="btn"> &laquo; first</a>
+                        <a href="{%url 'Buscar'%}?pagina={{results.previous_page_number}}&nombre={{busqueda}} " class="btn">anterior</a>
+                    {% endif %}    
+                    <span class="current">
+                        Pagina {{results.number}} de {{results.paginator.num_pages}}
+                    </span>    
+
+                    {% if results.has_next %}      
+                        <a href="{%url 'Buscar'%}?pagina={{results.next_page_number}}&nombre={{busqueda}}" class="btn">Siguiente</a>
+                        <a href="{%url 'Buscar'%}?pagina={{results.paginator.num_pages}}&nombre={{busqueda}}" class="btn"> &laquo; ultima pagina</a>
+                    {% endif %} 
+                </span>
+            </div>
+
+        </section>
+ 
+    {%endif%} 
+
+</section>
+
+{% endblock %}
