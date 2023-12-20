@@ -14,3 +14,5 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Pokedex.settings')
 
 application = get_wsgi_application()
+
+app = application #lo que entendi que es para conectar a nuestra web app
