@@ -203,20 +203,12 @@ footer {
   }
 
   .carousel-inner img {
-    max-width: 100%; /* Ajusta el tamaño máximo de las imágenes del carrusel */
+    width: 100%; /* Ajusta el tamaño de las imágenes del carrusel para que se ajusten al ancho de la tarjeta */
     height: auto; /* Permite que la altura de las imágenes se ajuste automáticamente */
   }
 
   .pagination {
     width: 100%; /* Ajusta el ancho de la paginación para que ocupe todo el ancho disponible */
     margin: 20px 0; /* Añade espacio entre la paginación y las tarjetas */
-  }
-
-  .card-title {
-    font-size: 1.2em; /* Ajusta el tamaño del título de la tarjeta para dispositivos móviles */
-  }
-
-  .card-text {
-    font-size: 0.9em; /* Ajusta el tamaño del texto de la tarjeta para dispositivos móviles */
   }
 }
