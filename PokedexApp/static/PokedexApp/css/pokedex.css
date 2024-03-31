@@ -124,15 +124,6 @@ nav {
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .results {
-    text-align: center;
-  }
-  .card-body > * {
-    text-align: center;
-  }
-}
-
 .unti .star {
   position: relative;
   display: block;
@@ -183,5 +174,49 @@ footer {
   .img-pok {
     width: 70%;
     height: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 20px; /* Reduce el espacio alrededor del contenido principal en dispositivos móviles */
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 10px; /* Reduce el espacio interno de la caja de búsqueda en dispositivos móviles */
+  }
+  .search-box.no-results {
+    height: auto; /* Ajusta la altura automáticamente en dispositivos móviles */
+    width: 100%;
+  }
+
+  .card {
+    width: calc(
+      100% - 20px
+    ); /* Ajusta el ancho de la tarjeta en dispositivos móviles */
+    margin: 10px auto; /* Añade espacio entre las tarjetas */
+  }
+
+  .card-body {
+    padding: 10px; /* Reduce el espacio interno del cuerpo de la tarjeta en dispositivos móviles */
+  }
+
+  .carousel-inner img {
+    max-width: 100%; /* Ajusta el tamaño máximo de las imágenes del carrusel */
+    height: auto; /* Permite que la altura de las imágenes se ajuste automáticamente */
+  }
+
+  .pagination {
+    width: 100%; /* Ajusta el ancho de la paginación para que ocupe todo el ancho disponible */
+    margin: 20px 0; /* Añade espacio entre la paginación y las tarjetas */
+  }
+
+  .card-title {
+    font-size: 1.2em; /* Ajusta el tamaño del título de la tarjeta para dispositivos móviles */
+  }
+
+  .card-text {
+    font-size: 0.9em; /* Ajusta el tamaño del texto de la tarjeta para dispositivos móviles */
   }
 }

@@ -21,7 +21,7 @@
                 {%for pokemon in results%}
                     <div class="card text-bg-danger col-sm-8 col-md-4 col-lg-4 col-xl-3 mx-4 my-3 ">
                         <div class="card-header">Pokemon ID: {{pokemon.id}}</div>
-                        <div class="card-body col-sm-12 col-4">
+                        <div class="card-body col-sm-12">
                             <div class="card-title"> {{pokemon.name|capfirst}}</div>
 
                             <div class="card-text">
@@ -40,7 +40,7 @@
                             {% else %}   
                                 <a class="star " href="{% url 'favoritos:Agregar' pokemon.id%}">&#9733;</a> 
                             {% endif %}    
-                            <div id="carouselExample{{pokemon.id}}" class="carousel slide col-sm-12 col-8">
+                            <div id="carouselExample{{pokemon.id}}" class="carousel slide col-sm-12 ">
                             
                                 <div class="carousel-inner">
                                   <div class="carousel-item active">
