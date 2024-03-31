@@ -1,188 +1,189 @@
-body{
-    font-family: "Lato", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-     /* Establece la altura mínima del body al 100% de la altura de la ventana */
-    background-image: url("../img/mundo-pokemon-mejorado.jpg");
-    background-size: cover; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body {
+  font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Establece la altura mínima del body al 100% de la altura de la ventana */
+  background-image: url("../img/mundo-pokemon-mejorado.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 nav {
-    background-color: #ee1010;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  background-color: #ee1010;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-@media(max-width:768px){
-    nav{
-        justify-content: space-between;
-    }
-    .favs{
-        height: 50vh;
-    }
+@media (max-width: 768px) {
+  nav {
+    justify-content: space-between;
+  }
+  .favs {
+    height: 50vh;
+  }
 }
 
 .logo1,
 .logo2 {
-    height: 80px;
-    width: auto;
+  height: 80px;
+  width: auto;
 }
 
-
-
-.star{
-   
-    font-size: 50px;
-    color:transparent;  
-    -webkit-text-stroke: 2px black; /* Contorno con 2 píxeles de ancho, color negro */
-    text-decoration: none;
+.star {
+  font-size: 50px;
+  color: transparent;
+  -webkit-text-stroke: 2px black; /* Contorno con 2 píxeles de ancho, color negro */
+  text-decoration: none;
 }
-.star:hover, .star:active, .star:focus{
-    transform: scale(1.05);
-    color: gold;
+.star:hover,
+.star:active,
+.star:focus {
+  transform: scale(1.05);
+  color: gold;
 }
-.active{
-    transform: scale(1.05);
-    color: gold;
-}
-
-@media(max-width:768px){
-    .logo2{
-        margin:auto
-    }
-    
+.active {
+  transform: scale(1.05);
+  color: gold;
 }
 
-.content{
-    flex: 1; /* Permite que el contenido principal crezca para ocupar todo el espacio restante */
-    padding: 50px; /* Añade espacio alrededor del contenido principal */
+@media (max-width: 768px) {
+  .logo2 {
+    margin: auto;
+  }
+}
+
+.content {
+  flex: 1; /* Permite que el contenido principal crezca para ocupar todo el espacio restante */
+  padding: 50px; /* Añade espacio alrededor del contenido principal */
 }
 .search-box {
-    background-color: rgb(251,247,244, 0.8);
-    margin: 10px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;  
-    border-radius: 10px;  
-    width: 40%;
+  background-color: rgb(251, 247, 244, 0.8);
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 20rem;
+  max-width: 40rem;
 }
 .search-box.no-results {
-    height: 60vh;
-    width: 40%;
-    padding:4px
+  height: 60vh;
+  width: 40%;
+  padding: 4px;
 }
-@media(max-width:768px){
-    .search-box {
-        width: auto;
-    }
-    .search-box.no-results{
-        width: auto;
-    }
-}
-
-.notfound{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;  
-    align-items: center;
-    background-color: rgb(251,247,244, 0.8);
-    margin: 10px auto;
-    border-radius: 20px;
-    width: 60%;
-    padding: 30px;
-    height: 75vh;
-
+@media (max-width: 768px) {
+  .search-box {
+    width: auto;
+  }
+  .search-box.no-results {
+    width: auto;
+  }
 }
 
-.img-color{
-    background-color: rgb(251,247,244, 0.8);
-    
+.notfound {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(251, 247, 244, 0.8);
+  margin: 10px auto;
+  border-radius: 20px;
+  width: 60%;
+  padding: 30px;
+  height: 75vh;
 }
 
-#pokemonInput{
-    height: 60px;
-    width: 300px;
-    text-align: center;
-}
-.results{
-    border-radius: 20px;
+.img-color {
+  background-color: rgb(251, 247, 244, 0.8);
 }
 
-.card{
-    border-radius: 20px;
-    border: 3px solid black;
-    box-shadow: 0 2px 4px rgba(0,0,0, 0.2);
-    transition: transform 0.3s ease-in-out;
+#pokemonInput {
+  height: 60px;
+  width: 300px;
+  text-align: center;
+}
+.results {
+  border-radius: 20px;
+}
+
+.card {
+  border-radius: 20px;
+  border: 3px solid black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 .card:hover {
-    transform: scale(1.05); /* Ajusta el tamaño al pasar el ratón sobre la tarjeta */
+  transform: scale(
+    1.05
+  ); /* Ajusta el tamaño al pasar el ratón sobre la tarjeta */
 }
 
-.card-body{
+.card-body {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .results {
     text-align: center;
-}
-
-
-
-.unti .star{
-    position: relative;
-    display: block;
-    width: 30px;
-    height: 30px;
-    font-size: 24px;
-}
-
-
-
-.btn-primary{
-    width: 300px;
-}
-.pagination{
-    position: relative;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 75%;
-    
-}
-.pagination a{
-    text-decoration: none;
-    border: 2px solid black;
-    background-color: green;
-    margin: auto;
-    transform: transition 0.3s;
-}
-.pagination a:hover{
-    transform: scale(1.1);
-}
-
-.current{
-    color:white;
+  }
+  .card-body > * {
     text-align: center;
+  }
 }
 
-footer{
-    padding:40px; /* Ajusta el margen superior para separar el footer del contenido principal */
-    position:relative;
-    width: 100%;
-    bottom:0px;
-    margin-top: 20px;
+.unti .star {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
 }
 
+.btn-primary {
+  width: 300px;
+}
+.pagination {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
+}
+.pagination a {
+  text-decoration: none;
+  border: 2px solid black;
+  background-color: green;
+  margin: auto;
+  transform: transition 0.3s;
+}
+.pagination a:hover {
+  transform: scale(1.1);
+}
 
-@media(max-width:768px){
-    .notfound{
-        width: auto;
-        height: auto;
-        text-align: center;
-    }
-    .img-pok{
-        width: 70%;
-        height: 50%;
-    }
+.current {
+  color: white;
+  text-align: center;
+}
+
+footer {
+  padding: 40px; /* Ajusta el margen superior para separar el footer del contenido principal */
+  position: relative;
+  width: 100%;
+  bottom: 0px;
+}
+
+@media (max-width: 768px) {
+  .notfound {
+    width: auto;
+    height: auto;
+    text-align: center;
+  }
+  .img-pok {
+    width: 70%;
+    height: 50%;
+  }
 }

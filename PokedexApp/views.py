@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.contrib import messages
 from utils.utils import pokemones
 import requests
 # Create your views here.
@@ -12,6 +13,10 @@ def buscar(request):
         #api_url_name = "https://pokeapi.co/api/v2/pokemon/"
         api_url_name = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
         response = requests.get(api_url_name)
+
+        if len(nombre)<3:
+            messages.error(request,"Pon un minimo de 2 letras")
+            return redirect("Pokedex")
 
         if response.status_code == 200:
             datos = response.json()
@@ -26,6 +31,9 @@ def buscar(request):
                         results.append(pokemon)     """
 
             # Detalles adicionales
+            if len(results) == 0:
+                messages.warning(request, "No se ha encontrado ningun pokemon")
+                return redirect("Pokedex")
             for pokemon in results:
                 api_url_pokemon = pokemon["url"]
                 response_pokemon = requests.get(api_url_pokemon)
@@ -44,7 +52,6 @@ def buscar(request):
                         for i in request.session["fav"]:
                             if i["name"] == pokemon["name"]:
                                 active = True
-                                print("gd")
                                 break
                            
                     resultados={

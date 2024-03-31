@@ -1,0 +1,10 @@
+.error {
+  width: 100%;
+  color: rgb(244, 44, 44, 0.5);
+}
+.warning {
+  width: 100%;
+  border-radius: 1rem;
+  color: rgba(240, 208, 29, 0.897);
+  text-align: center;
+}
